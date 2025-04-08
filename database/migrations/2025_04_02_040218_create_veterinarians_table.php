@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('veterinarians', function (Blueprint $table) {
             $table->id();
+            $table->string('name'); 
+            $table->string('address'); 
+            $table->string('phone'); 
+            $table->string('hours'); 
+            $table->string('services_offered'); 
             $table->timestamps();
         });
     }

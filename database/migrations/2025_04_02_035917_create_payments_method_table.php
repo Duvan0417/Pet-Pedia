@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('payments_method', function (Blueprint $table) {
             $table->id();
+            $table->integer('usuario_ID');
+            $table->string('tipo');
+            $table->string('Detalles');
+            $table->date('Fecha_expedicion');
+            $table->integer('CCV');
             $table->timestamps();
         });
     }
