@@ -13,6 +13,19 @@ return new class extends Migration
     {
         Schema::create('shelters', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('pets_id'); 
+            $table->unsignedBigInteger('trainers_id'); 
+            $table->unsignedBigInteger('services_id'); 
+
+            $table->foreign('pets_id')->references('id')->on('pets')->onDelete('cascade');
+            $table->foreign('trainers_id')->references('id')->on('trainers')->onDelete('cascade');
+            $table->foreign('services_id')->references('id')->on('services')->onDelete('cascade');
+
+            $table->string('nombre');
+            $table->integer('telefono');
+            $table->string('responsable');
+            $table->string('correo_electronico');
+            $table->string('direccion');
             $table->timestamps();
         });
     }

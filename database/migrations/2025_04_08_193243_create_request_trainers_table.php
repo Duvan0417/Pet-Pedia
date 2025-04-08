@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('request_trainers', function (Blueprint $table) {
             $table->id();
+            $table->string('estado');
+            $table->string('comentario');
+            $table->date('fecha_solicitud');
+           
             $table->timestamps();
         });
     }
