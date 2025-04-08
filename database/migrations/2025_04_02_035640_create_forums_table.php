@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('forums', function (Blueprint $table) {
             $table->id();
+            $table->string('NombreForo');
+            $table->string('Descripcion');
+            $table->date('FechaCreacion');
+            $table->integer('UsuarioID');
             $table->timestamps();
         });
     }

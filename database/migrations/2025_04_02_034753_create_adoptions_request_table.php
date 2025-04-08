@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('adoptions_request', function (Blueprint $table) {
             $table->id();
+            $table->integer('usuario_ID');
+            $table->integer('mascota_ID');
+            $table->date('Fecha_solicitud');
+            $table->string('estado');
+            $table->string('comentarios');
             $table->timestamps();
         });
     }
