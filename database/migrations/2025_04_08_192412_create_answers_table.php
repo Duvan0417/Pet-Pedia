@@ -13,20 +13,20 @@ return new class extends Migration
     {
         Schema::create('answers', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('users_id'); 
+            $table->unsignedBigInteger('users_id');
             $table->unsignedBigInteger('topics_id');
 
             $table->foreign('users_id')
-            ->references('id')->on('users') 
-            ->onDelete('cascade');  
-      $table->foreign('topics_id')
-                  ->references('id')->on('topics') 
-                  ->onDelete('cascade'); 
+            ->references('id')->on('users')
+            ->onDelete('cascade');
+            $table->foreign('topics_id')
+                  ->references('id')->on('topics')
+                  ->onDelete('cascade');
 
             $table->string('Content');
             $table->date('CreationDate');
             $table->timestamps();
-            
+
         });
     }
 
