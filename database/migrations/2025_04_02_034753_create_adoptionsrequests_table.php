@@ -11,16 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('forums', function (Blueprint $table) {
+        Schema::create('adoptionrequests', function (Blueprint $table) {
             $table->id();
-            $table->string('forum_name');
-            $table->text('description'); // Cambiado a text para admitir descripciones largas
-            $table->date('creation_date');
-            $table->unsignedBigInteger('user_id'); // Cambiado a unsignedBigInteger para compatibilidad
+            $table->unsignedBigInteger('user_id'); 
+            $table->unsignedBigInteger('pet_id');  
+            $table->date('request_date');
+            $table->string('status');
+            $table->text('comments'); 
             $table->timestamps();
 
-            // Definición de clave foránea
+            
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('pet_id')->references('id')->on('pets')->onDelete('cascade');
         });
     }
 
@@ -29,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('forums');
+        Schema::dropIfExists('adoptionrequests'); 
     }
 };

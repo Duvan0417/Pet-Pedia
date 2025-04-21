@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('veterinarians', function (Blueprint $table) {
             $table->id();
-            $table->string('name'); 
-            $table->string('address'); 
-            $table->string('phone'); 
-            $table->string('hours'); 
-            $table->string('services_offered'); 
+            $table->string('name');
+            $table->text('address'); // Cambiado a text para permitir direcciones más largas
+            $table->string('phone');
+            $table->string('hours');
+            $table->text('services_offered'); // Cambiado a text por si hay una lista larga de servicios
             $table->timestamps();
         });
     }

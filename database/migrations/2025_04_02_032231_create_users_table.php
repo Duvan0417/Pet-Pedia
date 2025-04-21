@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->string('correo_electronico');
-            $table->string('contrasena');
-            $table->string('telefono');
-            $table->date('fecha_registro');
+            $table->string('name');
+            $table->string('email')->unique(); // Agregando restricción única para evitar duplicados de correos electrónicos
+            $table->string('password');
+            $table->string('phone');
+            $table->date('registration_date')->nullable(); // Permitirá valores nulos en caso de que no siempre se tenga esta información
             $table->timestamps();
         });
     }

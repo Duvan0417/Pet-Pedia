@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('forums', function (Blueprint $table) {
+        Schema::create('paymentmethods', function (Blueprint $table) {
             $table->id();
-            $table->string('forum_name');
-            $table->text('description'); // Cambiado a text para admitir descripciones largas
-            $table->date('creation_date');
-            $table->unsignedBigInteger('user_id'); // Cambiado a unsignedBigInteger para compatibilidad
+            $table->unsignedBigInteger('user_id'); // Cambiado a unsignedBigInteger para mayor compatibilidad
+            $table->string('type');
+            $table->string('details');
+            $table->date('issue_date');
+            $table->integer('CCV');
             $table->timestamps();
 
             // Definición de clave foránea
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('forums');
+        Schema::dropIfExists('paymentmethods'); // Corregido el nombre para que coincida con la creación
     }
 };
