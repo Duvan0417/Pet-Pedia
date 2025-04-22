@@ -9,7 +9,11 @@ use Illuminate\Http\Request;
 
     class RequestTrainersController extends Controller
     {
-        
+        public function index()
+        {
+            return view('requesttrainer.index'); // Asegúrate de tener esta vista creada
+        }
+ 
     }
      
 
