@@ -13,16 +13,16 @@ return new class extends Migration
     {
         Schema::create('request_appointments', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id'); // Cambiado a unsignedBigInteger para mayor compatibilidad
-            $table->unsignedBigInteger('pet_id');  // Lo mismo aquí
+            $table->unsignedBigInteger('user_id'); 
+            $table->unsignedBigInteger('pet_id');  
             $table->date('request_date');
             $table->string('status');
             $table->string('details');
             $table->timestamps();
         
-            // Definición de claves foráneas
+            
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('pet_id')->references('id')->on('pets')->onDelete('cascade');
+            
         });
     }
 
